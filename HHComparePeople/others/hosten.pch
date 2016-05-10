@@ -1,0 +1,25 @@
+//
+//  hosten.pch
+//  HHComparePeople
+//
+//  Created by mac on 16/3/27.
+//  Copyright © 2016年 Hosten. All rights reserved.
+//
+
+#ifndef hosten_pch
+#define hosten_pch
+
+// ...表示宏定义的可变参数
+// __VA_ARGS__:表示函数里面的可变参数
+#ifdef DEBUG
+#define NSLog(...) NSLog(__VA_ARGS__)
+#define debugMethod() NSLog(@"%s", __func__)
+#else//发布
+#define NSLog(...)
+#define debugMethod()
+#endif
+/*        cell            */
+
+#define mScreenSize [UIScreen mainScreen].bounds.size
+
+#endif /* hosten_pch */
