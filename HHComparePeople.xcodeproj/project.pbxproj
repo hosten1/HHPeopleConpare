@@ -76,7 +76,6 @@
 		04CE17421CA3DC650087740D /* HHuserInfoSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE17271CA3DC650087740D /* HHuserInfoSettingTableViewCell.m */; };
 		04CE17431CA3DC650087740D /* HHuserInfoSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04CE17281CA3DC650087740D /* HHuserInfoSettingTableViewCell.xib */; };
 		04CE17441CA3DC650087740D /* HHMyMessagesTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE172B1CA3DC650087740D /* HHMyMessagesTableCell.m */; };
-		04CE17471CA3DD320087740D /* UIImage+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE17461CA3DD320087740D /* UIImage+Extention.m */; };
 		04CE17781CA3DE190087740D /* HHAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE174C1CA3DE190087740D /* HHAddressViewController.m */; };
 		04CE17791CA3DE190087740D /* HHSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE174E1CA3DE190087740D /* HHSearchResultViewController.m */; };
 		04CE177A1CA3DE190087740D /* ChineseString.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE17531CA3DE190087740D /* ChineseString.m */; };
@@ -133,6 +132,11 @@
 		6D26B0261CE9738600DFF202 /* icon_chose_arrow_nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D26B0221CE9738600DFF202 /* icon_chose_arrow_nor@2x.png */; };
 		6D26B0271CE9738600DFF202 /* icon_chose_arrow_sel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D26B0231CE9738600DFF202 /* icon_chose_arrow_sel@2x.png */; };
 		6D26B0281CE9738600DFF202 /* icon_chose_bottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D26B0241CE9738600DFF202 /* icon_chose_bottom@2x.png */; };
+		6D26B0431CE99AAF00DFF202 /* NSArray+Show.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D26B0401CE99AAF00DFF202 /* NSArray+Show.m */; };
+		6D26B0491CE99ADF00DFF202 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D26B0461CE99ADF00DFF202 /* NSString+Extension.m */; };
+		6D26B0531CE99CA300DFF202 /* UIImage+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D26B0521CE99CA300DFF202 /* UIImage+Extention.m */; };
+		6D26B0561CE99CBB00DFF202 /* UIView+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D26B0551CE99CBB00DFF202 /* UIView+category.m */; };
+		6D26B0591CE9C6A800DFF202 /* HHTextFiled.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D26B0581CE9C6A800DFF202 /* HHTextFiled.m */; };
 		6D776A471CE96D51002C379E /* EAIntroPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D776A441CE96D51002C379E /* EAIntroPage.m */; };
 		6D776A481CE96D51002C379E /* EAIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D776A461CE96D51002C379E /* EAIntroView.m */; };
 /* End PBXBuildFile section */
@@ -279,8 +283,6 @@
 		04CE17281CA3DC650087740D /* HHuserInfoSettingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HHuserInfoSettingTableViewCell.xib; sourceTree = "<group>"; };
 		04CE172A1CA3DC650087740D /* HHMyMessagesTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHMyMessagesTableCell.h; sourceTree = "<group>"; };
 		04CE172B1CA3DC650087740D /* HHMyMessagesTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHMyMessagesTableCell.m; sourceTree = "<group>"; };
-		04CE17451CA3DD320087740D /* UIImage+Extention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extention.h"; sourceTree = "<group>"; };
-		04CE17461CA3DD320087740D /* UIImage+Extention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extention.m"; sourceTree = "<group>"; };
 		04CE174B1CA3DE190087740D /* HHAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHAddressViewController.h; sourceTree = "<group>"; };
 		04CE174C1CA3DE190087740D /* HHAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHAddressViewController.m; sourceTree = "<group>"; };
 		04CE174D1CA3DE190087740D /* HHSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHSearchResultViewController.h; sourceTree = "<group>"; };
@@ -371,6 +373,16 @@
 		6D26B0231CE9738600DFF202 /* icon_chose_arrow_sel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_chose_arrow_sel@2x.png"; sourceTree = "<group>"; };
 		6D26B0241CE9738600DFF202 /* icon_chose_bottom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_chose_bottom@2x.png"; sourceTree = "<group>"; };
 		6D26B02A1CE977EB00DFF202 /* iOSGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSGlobal.h; sourceTree = "<group>"; };
+		6D26B03F1CE99AAF00DFF202 /* NSArray+Show.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Show.h"; sourceTree = "<group>"; };
+		6D26B0401CE99AAF00DFF202 /* NSArray+Show.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Show.m"; sourceTree = "<group>"; };
+		6D26B0451CE99ADF00DFF202 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		6D26B0461CE99ADF00DFF202 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		6D26B0511CE99CA300DFF202 /* UIImage+Extention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extention.h"; sourceTree = "<group>"; };
+		6D26B0521CE99CA300DFF202 /* UIImage+Extention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extention.m"; sourceTree = "<group>"; };
+		6D26B0541CE99CBB00DFF202 /* UIView+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+category.h"; sourceTree = "<group>"; };
+		6D26B0551CE99CBB00DFF202 /* UIView+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+category.m"; sourceTree = "<group>"; };
+		6D26B0571CE9C6A800DFF202 /* HHTextFiled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTextFiled.h; sourceTree = "<group>"; };
+		6D26B0581CE9C6A800DFF202 /* HHTextFiled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTextFiled.m; sourceTree = "<group>"; };
 		6D776A431CE96D51002C379E /* EAIntroPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroPage.h; sourceTree = "<group>"; };
 		6D776A441CE96D51002C379E /* EAIntroPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroPage.m; sourceTree = "<group>"; };
 		6D776A451CE96D51002C379E /* EAIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroView.h; sourceTree = "<group>"; };
@@ -540,8 +552,6 @@
 				04CE178F1CA3DF7C0087740D /* libsqlite3.tbd */,
 				04CE178D1CA3DF6A0087740D /* CoreLocation.framework */,
 				04CE178B1CA3DF600087740D /* MapKit.framework */,
-				04CE17451CA3DD320087740D /* UIImage+Extention.h */,
-				04CE17461CA3DD320087740D /* UIImage+Extention.m */,
 				04CE16D71CA3DBF00087740D /* Utiles */,
 				04CE167D1CA3DBD50087740D /* FMDB */,
 				04CE168A1CA3DBD50087740D /* MBProgressHUD */,
@@ -1034,6 +1044,8 @@
 				04CE17751CA3DE190087740D /* HHTableViewCell.h */,
 				04CE17761CA3DE190087740D /* HHTableViewCell.m */,
 				04CE17771CA3DE190087740D /* HHTableViewCell.xib */,
+				6D26B0571CE9C6A800DFF202 /* HHTextFiled.h */,
+				6D26B0581CE9C6A800DFF202 /* HHTextFiled.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1236,6 +1248,14 @@
 		6D26B02B1CE9783700DFF202 /* category */ = {
 			isa = PBXGroup;
 			children = (
+				6D26B0541CE99CBB00DFF202 /* UIView+category.h */,
+				6D26B0551CE99CBB00DFF202 /* UIView+category.m */,
+				6D26B0511CE99CA300DFF202 /* UIImage+Extention.h */,
+				6D26B0521CE99CA300DFF202 /* UIImage+Extention.m */,
+				6D26B0451CE99ADF00DFF202 /* NSString+Extension.h */,
+				6D26B0461CE99ADF00DFF202 /* NSString+Extension.m */,
+				6D26B03F1CE99AAF00DFF202 /* NSArray+Show.h */,
+				6D26B0401CE99AAF00DFF202 /* NSArray+Show.m */,
 			);
 			name = category;
 			sourceTree = "<group>";
@@ -1421,20 +1441,23 @@
 				04CE177E1CA3DE190087740D /* HHAddressDatasDB.m in Sources */,
 				04CE16C41CA3DBD50087740D /* MKAnnotationView+WebCache.m in Sources */,
 				04CE17831CA3DE190087740D /* HHHomeDatas.m in Sources */,
-				04CE17471CA3DD320087740D /* UIImage+Extention.m in Sources */,
 				04CE173A1CA3DC650087740D /* HHUserInfoDB.m in Sources */,
 				04CE16C71CA3DBD50087740D /* SDWebImageCompat.m in Sources */,
+				6D26B0531CE99CA300DFF202 /* UIImage+Extention.m in Sources */,
+				6D26B0591CE9C6A800DFF202 /* HHTextFiled.m in Sources */,
 				04CE177F1CA3DE190087740D /* HHCity.m in Sources */,
 				04CE17821CA3DE190087740D /* HHHomeCellDatas.m in Sources */,
 				04CE17811CA3DE190087740D /* HHDiscussShopDB.m in Sources */,
 				04CE17381CA3DC650087740D /* HHRegistViewController.m in Sources */,
 				04CE16BA1CA3DBD50087740D /* FMDatabase.m in Sources */,
 				04CE16DA1CA3DBF00087740D /* HHAddressPosition.m in Sources */,
+				6D26B0431CE99AAF00DFF202 /* NSArray+Show.m in Sources */,
 				04CE17C51CA3EBE90087740D /* HHMapViewController.m in Sources */,
 				04CE177C1CA3DE190087740D /* HHHomeViewController.m in Sources */,
 				04CE16CF1CA3DBD50087740D /* UIImage+MultiFormat.m in Sources */,
 				04CE17781CA3DE190087740D /* HHAddressViewController.m in Sources */,
 				04CE17411CA3DC650087740D /* HHuserInfoSetting.m in Sources */,
+				6D26B0561CE99CBB00DFF202 /* UIView+category.m in Sources */,
 				04CE17421CA3DC650087740D /* HHuserInfoSettingTableViewCell.m in Sources */,
 				04CE17C61CA3EBE90087740D /* HHMyAnnoatation.m in Sources */,
 				04CE16D21CA3DBD50087740D /* UIImageView+WebCache.m in Sources */,
@@ -1477,6 +1500,7 @@
 				04CE17391CA3DC650087740D /* HHUserInfo.m in Sources */,
 				04CE16D01CA3DBD50087740D /* UIImage+WebP.m in Sources */,
 				04CE16CB1CA3DBD50087740D /* SDWebImageManager.m in Sources */,
+				6D26B0491CE99ADF00DFF202 /* NSString+Extension.m in Sources */,
 				04CE16BF1CA3DBD50087740D /* FMResultSet.m in Sources */,
 				04CE16BB1CA3DBD50087740D /* FMDatabaseAdditions.m in Sources */,
 				04CE16C61CA3DBD50087740D /* SDImageCache.m in Sources */,

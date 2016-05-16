@@ -11,6 +11,7 @@
 #import "HHCity.h"
 #import "HHSearchResultViewController.h"
 #import "HHAddressDatasDB.h"
+#import "HHTextFiled.h"
 
 #define mScreenSize [UIScreen mainScreen].bounds.size
 
@@ -49,9 +50,9 @@
     if (self.addrDB == nil) {
         _addrDB = [[HHAddressDatasDB alloc]init];
     }
-    [self addHeader];
-    [self initTableView];
+
     [self addsearchView];
+    [self initTableView];
     _citysName = [HHCity cityNameOfSort];
      _citysIndex = [HHCity cityNamePingYingOfSort];
 //    NSLog(@">>>>>%@.....%@",_citysName,_citysIndex);
@@ -87,23 +88,22 @@
      self.addressTableView.hidden = !self.addressTableView.hidden;
 }
 -(void)addsearchView{
-    UITextField *headerTextFiled = [[UITextField alloc]initWithFrame:CGRectMake(20,70, 330, 35)];
+    //文本框图片
+    UIImageView *leftView = [[UIImageView alloc]initWithImage: [UIImage imageNamed: @"booking_channel_search_icon" ]];
+    leftView.frame = CGRectMake(0, 0, 15, 15);
+    CGFloat y = CGRectGetMaxY(self.navigationController.navigationBar.frame);
+    HHTextFiled *headerTextFiled = [[HHTextFiled alloc]initWithFrame: CGRectMake(20*ScreenScale_width,y+10,330*ScreenScale_width, 35*ScreenScale_height) drawingLeft:leftView];
     [headerTextFiled setPlaceholder:@"输入用户名,地点"];
     [headerTextFiled setFont:[UIFont systemFontOfSize:12]];
     [headerTextFiled.layer setCornerRadius:15];
     [headerTextFiled.layer setMasksToBounds:YES];
     headerTextFiled.backgroundColor = [UIColor whiteColor];
-    [headerTextFiled setLayoutMargins:UIEdgeInsetsMake(0, 30, 0, 0)];
     //设置代理
     headerTextFiled.delegate = self;
 //    headerTextFiled.text = @"北";
     self.textFiled = headerTextFiled;
     [self.view addSubview:headerTextFiled];
-    //文本框图片
-    UIImageView *leftView = [[UIImageView alloc]initWithImage: [UIImage imageNamed: @"booking_channel_search_icon" ]];
-    leftView.frame = CGRectMake(0, 0, 15, 15);
-    [headerTextFiled setLeftView:leftView];
-    [headerTextFiled setLeftViewMode:UITextFieldViewModeAlways];
+   
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -141,7 +141,7 @@
 
 -(void)initTableView{
     //tableView
-    CGFloat tabY = self.headerView.frame.origin.y+90;
+    CGFloat tabY = CGRectGetMaxY(self.textFiled.frame)+3;
     CGFloat heithy = mScreenSize.height - tabY;
     /*
      

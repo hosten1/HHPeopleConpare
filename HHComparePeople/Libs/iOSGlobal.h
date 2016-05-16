@@ -36,6 +36,9 @@
 /// 屏幕高度、宽度
 #define Screen_height   [[UIScreen mainScreen] bounds].size.height
 #define Screen_width    [[UIScreen mainScreen] bounds].size.width
+/// 屏幕高度、宽度
+#define ScreenScale_height   [[UIScreen mainScreen] bounds].size.height/664
+#define ScreenScale_width    [[UIScreen mainScreen] bounds].size.width/375
 #pragma mark - System Version
 /// 当前系统版本大于等于某版本
 #define IOS_SYSTEM_VERSION_EQUAL_OR_ABOVE(v) (([[[UIDevice currentDevice] systemVersion] floatValue] >= (v))? (YES):(NO))

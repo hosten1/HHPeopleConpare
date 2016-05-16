@@ -9,6 +9,7 @@
 #import "HHHomeViewController.h"
 #import "HHTabBar.h"
 #import "UIImage+Extention.h"
+#import "NSString+Extension.h"
 #import "HHHomeDatas.h"
 #import "HHAddressDatasDB.h"
 #import "HHHomeCellDatas.h"
@@ -23,16 +24,17 @@
 #import <BaiduMapAPI_Location/BMKLocationComponent.h>
 #import <BaiduMapAPI_Utils/BMKUtilsComponent.h>
 #import <BaiduMapAPI_Search/BMKSearchComponent.h>
+#import "HHTextFiled.h"
 
 #define URLRe @"http://api.dianping.com/v1/business/find_businesses"
 //#import "ParseJSON.h"
 //#import <CoreLocation/CoreLocation.h>
 
-@interface HHHomeViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,BackData,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate>
+@interface HHHomeViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,BackData,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,UISearchBarDelegate>
 
-
+@property(nonatomic, strong)HHTextFiled *searchBar;
 @property(nonatomic, weak)UIView *headerView;
-@property(nonatomic, weak)UIButton *headerButtion;
+@property(nonatomic, weak)UIButton *leftBtn;
 @property(nonatomic, weak)UITableView *homeTableView;
 @property (assign,nonatomic) int viewCount;
 @property(nonatomic, strong)NSArray *homedatas;
@@ -178,7 +180,7 @@
     }
     _geocodesearch.delegate = self; // 此处记得不用的时候需要置nil，否则影响内存的释放
 
-    [self addHeader];
+//    [self addHeader];
     [self.homeTableView reloadData];
     
 }
@@ -195,23 +197,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"首页";
     //适配ios7
-    if( ([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0))
-    {
-        self.navigationController.navigationBar.translucent = NO;
-    }
-
-    [self addHeader];
-    if (self.view.subviews != nil && self.view.subviews.count != 0) {
-        /****移除所有view****/
-        NSArray *vies = self.view.subviews;
-        
-        for(int i = 0;i < [vies count];i++){
-            
-            [[vies objectAtIndex:i]removeFromSuperview];
-        }
-    }
-   
+//    if( ([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0))
+//    {
+//        self.navigationController.navigationBar.translucent = NO;
+//    }
+    
     self.view.backgroundColor = [UIColor colorWithRed:(245/255.0) green:245/255.0 blue:245/255.0 alpha:0.9];
 
    self.homedatas =  [HHHomeDatas addTitleData];
@@ -219,12 +211,58 @@
     //设置tableeView
     [self initTableView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ChangeNameNotification:) name:@"ChangeNameNotification" object:nil];
+    // 初始化 navigationController
+    [self initNavigationController];
+    
+}
+-(void)initNavigationController{
+
+    [self.navigationController.navigationBar setBarTintColor:[UIColor orangeColor]];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleDefault];
+
+   
+    //获取沙盒记录
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    NSString  *address =[user objectForKey:@"cityName"];
+    //    NSLog(@"address>>>%@",address);
+    if (address == nil || address.length == 0) {
+        address = @"西安市";
+    }
+   
+//    UIImage *addreImg = [UIImage imageNamed:@"title_arrow_down_normal"];
+//    UIBarButtonItem *leftItemImg = [[UIBarButtonItem alloc] initWithImage: addreImg style:(UIBarButtonItemStyleDone) target:self action:@selector(addPickerViewhome:)];
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:address style:(UIBarButtonItemStyleDone) target:self action:@selector(addPickerViewhome:)];
+//    CGSize re = [address sizeWithMaxSize:CGSizeMake(300, 300) andFont:14];
+//    leftItem.imageInsets = UIEdgeInsetsMake(0, re.width, 0, -re.width);
+    self.navigationItem.leftBarButtonItems = @[leftItem];
     
     
-   }
+    //导航条的搜索条
+    UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0,15, 15)];
+    img.image = [UIImage imageNamed:@"booking_channel_search_icon"];
+    _searchBar = [[HHTextFiled alloc]initWithFrame:CGRectMake(0.0f,0.0f,200.0f,30.0f) drawingLeft:img];
+    _searchBar.delegate = self;
+    [_searchBar setBackgroundColor:[UIColor whiteColor]];
+    [_searchBar setTintColor:[UIColor whiteColor]];
+    [_searchBar setPlaceholder:@"输入用户名/地名"];
+    [_searchBar.layer setCornerRadius:15];
+    [_searchBar.layer setMasksToBounds:YES];
+
+    //将搜索条放在一个UIView上
+    UIView *searchView = [[UIView alloc]initWithFrame:CGRectMake(95*ScreenScale_width,0, 200*ScreenScale_width, 35*ScreenScale_height)];
+    searchView.backgroundColor = [UIColor clearColor];
+    [searchView addSubview:_searchBar];
+    self.navigationItem.titleView = searchView;
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem: UIBarButtonSystemItemAdd target:self action:@selector(loadMoreInfo:)];
+    self.navigationItem.rightBarButtonItem = rightItem;
+;
+    
+}
 #pragma mark  通只事件
 -(void)ChangeNameNotification:(NSNotification*)notification{
-    [self addHeader];
+//    [self addHeader];
     
 }
 
@@ -233,7 +271,7 @@
 //   CGFloat y = CGRectGetMaxY(self.headerView.frame);
 //    
 //    NSLog(@"vvv:%lf",y);
-    CGFloat tabY = self.headerView.frame.origin.y+60;
+    CGFloat tabY = 0;
     CGFloat heithy = mScreenSize.height - tabY;
     /*
      
@@ -244,75 +282,6 @@
     homeTableView.dataSource = self;
     self.homeTableView = homeTableView;
     [self.view addSubview:homeTableView];
-}
--(void)addHeader{
-    
-    if (self.headerView.subviews != nil && self.headerView.subviews.count != 0) {
-        /****移除所有view****/
-        NSArray *vies = self.headerView.subviews ;
-        
-        for(int i = 0;i< [vies count];i++){
-            
-            [[vies objectAtIndex:i]removeFromSuperview];
-        }
-    }
-    [self.headerView removeFromSuperview];
-    
-    //重新加载数据
-    [_celldata removeAllObjects];
-    _celldata = nil;
-//    [self addcelldata];
-//    NSLog(@"%@",_celldata);
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 20, mScreenSize.width, mScreenSize.height*0.06)];
-    self.headerView = headerView;
-    CGSize sizze = headerView.frame.size;
-    UIButton  *headerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.headerButtion = headerBtn;
-    //获取沙盒记录
-    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-    NSString  *address =[user objectForKey:@"cityName"];
-//    NSLog(@"address>>>%@",address);
-    if (address == nil) {
-        address = @"西安市";
-    }
-    [headerBtn setTitle:address forState:UIControlStateNormal];
-    
-     headerBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [headerBtn addTarget:self action:@selector(addPickerViewhome:) forControlEvents:UIControlEventTouchUpInside];
-    [headerBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    headerBtn.frame = CGRectMake(5,15 ,80, sizze.height*0.33);
-    [headerView addSubview:headerBtn];
-    
-    UIImage *addreImg = [UIImage imageNamed:@"title_home_arrow_down_normal"];
-    UIImageView *addreImgView = [[UIImageView alloc]initWithFrame:CGRectMake(60,12 , 20, 20 )];
-    [addreImgView setImage:addreImg];
-    [headerView addSubview:addreImgView];
-    
-    UITextField *headerTextFiled = [[UITextField alloc]initWithFrame:CGRectMake(80,5, 250, sizze.height*0.73)];
-    [headerTextFiled setPlaceholder:@"输入用户名,地点"];
-    [headerTextFiled setFont:[UIFont systemFontOfSize:12]];
-    [headerTextFiled.layer setCornerRadius:15];
-    [headerTextFiled.layer setMasksToBounds:YES];
-    headerTextFiled.backgroundColor = [UIColor whiteColor];
-    [headerTextFiled setLayoutMargins:UIEdgeInsetsMake(0, 30, 0, 0)];
-    //设置代理
-    headerTextFiled.delegate = self;
-    
-    [headerView addSubview:headerTextFiled];
-    //文本框图片
-    UIImageView *leftView = [[UIImageView alloc]initWithImage: [UIImage imageNamed: @"booking_channel_search_icon" ]];
-    leftView.frame = CGRectMake(0, 0, 15, 15);
-    [headerTextFiled setLeftView:leftView];
-    [headerTextFiled setLeftViewMode:UITextFieldViewModeAlways];
-    //
-    UIButton  *headerBtnim = [UIButton buttonWithType:UIButtonTypeCustom];
-    [headerBtnim setImage:[UIImage imageNamed:@"ic_btn_add_shop"] forState:UIControlStateNormal];
-    headerBtnim.frame = CGRectMake(sizze.width*0.9,7,30,25 );
-    [headerView addSubview:headerBtnim];
-    
-    
-    headerView.backgroundColor = [UIColor orangeColor];
-    [self.view addSubview:headerView];
 }
 //点击按钮出现
 -(void)addPickerViewhome:(UIButton*)sender{
@@ -335,7 +304,7 @@
     
     //跳转
     HHAddressViewController *addr = [[HHAddressViewController alloc]init];
-    [self presentViewController:addr animated:YES completion:nil];
+    [self.navigationController pushViewController:addr animated:YES];
     
 }
 - (void)didReceiveMemoryWarning {
@@ -707,7 +676,7 @@
     
      shop.titleTextSender = sender.titleLabel.text;
     
-    [self presentViewController:shop animated:YES completion:nil];
+    [self.navigationController pushViewController:shop animated:YES];
 //    NSLog(@"被点击了：+%ld,title:%@",sender.tag,sender.titleLabel.text);
 }
 #pragma mark - UIScrollViewDelegate
@@ -734,7 +703,7 @@
     [textField resignFirstResponder];
     //跳转
     HHAddressViewController *addr = [[HHAddressViewController alloc]init];
-    [self presentViewController:addr animated:YES completion:nil];
+    [self.navigationController pushViewController:addr animated:YES];
 }
 #pragma mark   ------定位服务的代理方法
 /**********获取定位位置的代理方法************/
@@ -807,7 +776,6 @@
                 [add insertFromHistoryWithName:mark.locality];
     //            重新调用 初始化数据
     //            [self viewDidLoad];
-                [self addHeader];
                 [self.homeTableView reloadData];
              }
            }

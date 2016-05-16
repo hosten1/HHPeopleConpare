@@ -20,7 +20,6 @@
 #endif
 
 #import "iOSGlobal.h"
-
 #define mScreenSize [UIScreen mainScreen].bounds.size
 
 #endif /* hosten_pch */
