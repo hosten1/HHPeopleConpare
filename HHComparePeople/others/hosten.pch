@@ -18,7 +18,8 @@
 #define NSLog(...)
 #define debugMethod()
 #endif
-/*        cell            */
+
+#import "iOSGlobal.h"
 
 #define mScreenSize [UIScreen mainScreen].bounds.size
 

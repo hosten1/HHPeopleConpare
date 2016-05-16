@@ -122,7 +122,7 @@ typedef NS_ENUM(NSUInteger, MOBFNetworkType)
  *
  *  @return YES 是，NO 否
  */
-+ (BOOL)isPad;
+//+ (BOOL)isPad;
 
 /**
  *  获取设备唯一标识
