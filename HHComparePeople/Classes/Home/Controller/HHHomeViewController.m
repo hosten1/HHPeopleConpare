@@ -219,7 +219,7 @@
     UIImage *addreImg = [UIImage imageNamed:@"yy_arrow"];
     UIButton *btnImg = [UIButton buttonWithType:UIButtonTypeCustom];
     self.btnBg = btnImg;
-    btnImg.frame = CGRectMake((18+btnSize.width)*ScreenScale_width, 10*ScreenScale_height, 30*ScreenScale_width, 30*ScreenScale_height);
+    btnImg.frame = CGRectMake((15+btnSize.width)*ScreenScale_width, 7*ScreenScale_height, 30*ScreenScale_width, 30*ScreenScale_height);
     [btnImg setBackgroundImage:addreImg forState:UIControlStateNormal];
     [btnImg setBackgroundImage:[UIImage imageNamed:@"yy_arrow_pressed"] forState:UIControlStateHighlighted];
     [btnImg addTarget:self action:@selector(addPickerViewhome:) forControlEvents:UIControlEventTouchUpInside];
