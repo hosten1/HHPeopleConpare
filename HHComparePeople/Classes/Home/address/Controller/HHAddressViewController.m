@@ -27,6 +27,8 @@
 @property(nonatomic, weak)UITextField *textFiled;
 @property(nonatomic, strong)HHSearchResultViewController *search;
 @property(nonatomic, strong)HHAddressDatasDB *addrDB;
+
+@property(nonatomic, weak)NSString *locationString;
 @end
 
 @implementation HHAddressViewController
@@ -53,6 +55,8 @@
 
     [self addsearchView];
     [self initTableView];
+    NSUserDefaults *userDefault =[NSUserDefaults standardUserDefaults];
+    _locationString = [userDefault objectForKey:@"LocationCityName"];
     _citysName = [HHCity cityNameOfSort];
      _citysIndex = [HHCity cityNamePingYingOfSort];
 //    NSLog(@">>>>>%@.....%@",_citysName,_citysIndex);
@@ -157,34 +161,34 @@
 
 #pragma mark -- table 的代理方法
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if(section == 0) {
-        return 1;
-    }else if(section == 1){
+    if(section == 0 || section == 1||section == 2) {
         return 1;
     }else{
    
-        NSArray *cit = self.citysName[section-2];
+        NSArray *cit = self.citysName[section-3];
         return cit.count;
     }
     
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return _citysName.count+2;
+    return _citysName.count+3;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section == 0 ||section == 1) {
+    if (section == 0 ||section == 1||section == 2) {
         return 30;
     }
     return 20;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    if (section == 0 ||section == 1) {
+    if (section == 0 ||section == 1||section == 2) {
         return 10;
     }
     return 0.5;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0 ) {
+    if (indexPath.section == 0) {
+        return 30;
+    }else if (indexPath.section == 1 ) {
         NSInteger count = self.HistiryCityArray.count;
         CGFloat height = 0.0;
         if (count <= 3) {
@@ -196,7 +200,7 @@
        NSLog(@"height:%lf",height);
         return height;
         
-    }else if(indexPath.section == 1){
+    }else if(indexPath.section == 2){
         return 90;
     }
     return 50;
@@ -215,17 +219,22 @@
                 [(UIView *)[cell.contentView.subviews lastObject] removeFromSuperview];
                 }
         }
-   if(indexPath.section == 0) {
+    if (indexPath.section == 0) {
+        if (self.locationString || self.locationString.length != 0) {
+            cell.textLabel.text = self.locationString;
+        }
+       
+    }else if(indexPath.section == 1) {
 //        NSLog(@"第一组");
        cell.backgroundColor = [UIColor clearColor];
        [self addSubBtn:cell.contentView array:self.HistiryCityArray];
-    }else if(indexPath.section == 1){
+    }else if(indexPath.section == 2){
         cell.backgroundColor = [UIColor clearColor];
         [self addSubBtn:cell.contentView array:self.HoteCityArray];
 //        NSLog(@"第二组");
     }else{
 //        NSLog(@"其他");
-        NSArray *array = _citysName[indexPath.section-2];
+        NSArray *array = _citysName[indexPath.section-3];
         NSString *ciryname = array[indexPath.row];
         [cell.textLabel setText:ciryname];
     }
@@ -285,17 +294,20 @@
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     [userDefault setObject:name forKey:@"cityName"];
     [userDefault synchronize];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 //    NSLog(@"点击了：%@",name);
 }
 #pragma mark  ---tableview代理方法
 -(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     if (section == 0) {
+        return @"定位城市";
+    }
+    if (section == 1) {
         return @"历史访问城市";
-    }else if(section == 1){
+    }else if(section == 2){
         return @"国内热门城市";
     }
-    return _citysIndex[section-2];
+    return _citysIndex[section-3];
 }
 -(NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView{
 //    if (tableView == self.searchDisplayController.searchResultsTableView) {
@@ -310,7 +322,7 @@
     //点击索引，列表跳转到对应索引的行
     
     [tableView
-     scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:index+2]
+     scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:index+3]
      atScrollPosition:UITableViewScrollPositionTop animated:YES];
     
     
@@ -319,7 +331,7 @@
     
     //[self showLetter:title ];
     
-    return index+2;
+    return index+3;
     
 }
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
@@ -342,7 +354,7 @@
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     [userDefault setObject:name forKey:@"cityName"];
     [userDefault synchronize];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
     //    NSLog(@"点击的cell>>>>>>%@",name);
 }
 

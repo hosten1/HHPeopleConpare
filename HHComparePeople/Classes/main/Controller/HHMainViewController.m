@@ -26,14 +26,14 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 @property (strong, nonatomic)  UIScrollView *scrollView;
 @property (assign,nonatomic) int picCount;
 @property (weak, nonatomic)  UIPageControl *WelcomPageControl;
+
 @end
 
 @implementation HHMainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
+   
     
 }
 -(void)viewDidAppear:(BOOL)animated{
@@ -105,5 +105,6 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     //跳转
     [self presentViewController:tabBarController animated:YES completion:NULL];
 }
+
 
 @end

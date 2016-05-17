@@ -49,6 +49,11 @@
 /*********地理编码反编码服务**********/
 @property(nonatomic, strong)BMKGeoCodeSearch * geocodesearch;
 @property(nonatomic, strong)CLGeocoder *gecode;
+
+@property(nonatomic, strong)UIButton *btnBg;
+@property(nonatomic,strong)UIBarButtonItem *leftBtnitem;
+@property(nonatomic,strong)UIBarButtonItem *rightBtnitem;
+
 @end
 
 @implementation HHHomeViewController
@@ -161,25 +166,9 @@
     return self;
 }
 -(void)viewWillAppear:(BOOL)animated{
-    /**********开始获取定位信息*************/
-    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
-    if ([CLLocationManager locationServicesEnabled ]) {
-        
-        NSLog(@"定位服务打开");
-    }
-    if (status == kCLAuthorizationStatusNotDetermined) {
-        NSLog(@"等待用户授权");
-    }else if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse){
-        NSLog(@"授权成功");
-        //请求成功后设置代理
-        self.locationServices.delegate = self;
-        //开启定位服务
-        [self.locationServices startUserLocationService];
-    }else{
-        NSLog(@"授权失败");
-    }
-    _geocodesearch.delegate = self; // 此处记得不用的时候需要置nil，否则影响内存的释放
 
+    // 初始化 navigationController
+    [self initNavigationController];
 //    [self addHeader];
     [self.homeTableView reloadData];
     
@@ -211,8 +200,6 @@
     //设置tableeView
     [self initTableView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ChangeNameNotification:) name:@"ChangeNameNotification" object:nil];
-    // 初始化 navigationController
-    [self initNavigationController];
     
 }
 -(void)initNavigationController{
@@ -221,29 +208,26 @@
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setBarStyle:UIBarStyleDefault];
 
-   
     //获取沙盒记录
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     NSString  *address =[user objectForKey:@"cityName"];
-    //    NSLog(@"address>>>%@",address);
     if (address == nil || address.length == 0) {
         address = @"西安市";
     }
+    CGSize btnSize = [address sizeWithMaxSize:CGSizeMake(200, 200) andFont:16];
+    
     UIImage *addreImg = [UIImage imageNamed:@"yy_arrow"];
     UIButton *btnImg = [UIButton buttonWithType:UIButtonTypeCustom];
-    btnImg.frame = CGRectMake(65*ScreenScale_width, 10*ScreenScale_height, 30*ScreenScale_width, 30*ScreenScale_height);
+    self.btnBg = btnImg;
+    btnImg.frame = CGRectMake((18+btnSize.width)*ScreenScale_width, 10*ScreenScale_height, 30*ScreenScale_width, 30*ScreenScale_height);
     [btnImg setBackgroundImage:addreImg forState:UIControlStateNormal];
-    [btnImg setBackgroundImage:addreImg forState:UIControlStateNormal];
+    [btnImg setBackgroundImage:[UIImage imageNamed:@"yy_arrow_pressed"] forState:UIControlStateHighlighted];
+    [btnImg addTarget:self action:@selector(addPickerViewhome:) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationController.navigationBar addSubview:btnImg];
     
-   
-
-//    UIBarButtonItem *leftItemImg = [[UIBarButtonItem alloc] initWithImage: addreImg style:(UIBarButtonItemStyleDone) target:self action:@selector(addPickerViewhome:)];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:address style:(UIBarButtonItemStyleDone) target:self action:@selector(addPickerViewhome:)];
-//    CGSize re = [address sizeWithMaxSize:CGSizeMake(300, 300) andFont:14];
-//    leftItem.imageInsets = UIEdgeInsetsMake(0, re.width, 0, -re.width);
     self.navigationItem.leftBarButtonItems = @[leftItem];
-    
+    self.leftBtnitem = leftItem;
     
     //导航条的搜索条
     UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0,15, 15)];
@@ -265,19 +249,17 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem: UIBarButtonSystemItemAdd target:self action:@selector(loadMoreInfo:)];
     self.navigationItem.rightBarButtonItem = rightItem;
 ;
+    self.rightBtnitem = rightItem;
     
 }
 #pragma mark  通只事件
 -(void)ChangeNameNotification:(NSNotification*)notification{
-//    [self addHeader];
+
     
 }
 
 -(void)initTableView{
-    //tableView
-//   CGFloat y = CGRectGetMaxY(self.headerView.frame);
-//    
-//    NSLog(@"vvv:%lf",y);
+
     CGFloat tabY = 0;
     CGFloat heithy = mScreenSize.height - tabY;
     /*
@@ -292,25 +274,9 @@
 }
 //点击按钮出现
 -(void)addPickerViewhome:(UIButton*)sender{
-//    NSLog(@"我被点击了");
-//       if (self.pickerControlller == nil) {
-////        NSLog(@"ddddddddd");
-//           HHPickerViewController *pickerView = [[HHPickerViewController alloc]init];
-//        self.pickerControlller = pickerView;
-//        CGRect rect = CGRectMake(20, 60, 325, 100);
-//        
-//        [pickerView.view setFrame:rect];
-//        
-//        [pickerView.view setBackgroundColor:[UIColor grayColor]];
-//        [self.view addSubview:pickerView.view];
-//    }else{
-//        [self.pickerControlller.view removeFromSuperview];
-//         self.pickerControlller = nil;
-//        [self viewDidLoad];
-//    }
-    
     //跳转
     HHAddressViewController *addr = [[HHAddressViewController alloc]init];
+    self.btnBg.hidden = YES;
     [self.navigationController pushViewController:addr animated:YES];
     
 }
@@ -517,7 +483,7 @@
             NSLog(@"%@",text);
             /**失败还是跳转**/
             HHDetailsViewConTroller *deta = [[HHDetailsViewConTroller alloc]init];
-                        deta.homeCellDatas = celldate;
+            deta.homeCellDatas = celldate;
             //跳转页面
             [self presentViewController:deta animated:YES completion:nil];
             
@@ -550,7 +516,7 @@
             celldate.homeLongitude = longitudeLabeltext;
             deta.homeCellDatas = celldate;
             //跳转页面
-            [self presentViewController:deta animated:YES completion:nil];
+            [self.navigationController pushViewController:deta animated:YES];
         }
     }];
 }
@@ -675,7 +641,7 @@
   
 
 }
-#pragma mark  ---挑选到商户详情页面
+#pragma mark  ---跳转到商户详情页面
 
     
 -(void)oneTitleBtnClick:(UIButton*)sender{
@@ -704,164 +670,19 @@
         //        [self scrollViewDisappear];
     }
 }
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    
+}
+
+
 #pragma mark ---UITextFiled 代理方法
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
     [textField resignFirstResponder];
     //跳转
     HHAddressViewController *addr = [[HHAddressViewController alloc]init];
+    self.btnBg.hidden = YES;
     [self.navigationController pushViewController:addr animated:YES];
 }
-#pragma mark   ------定位服务的代理方法
-/**********获取定位位置的代理方法************/
-/**
- *在地图View将要启动定位时，会调用此函数
- *@param mapView 地图View
- */
-- (void)willStartLocatingUser
-{
-    NSLog(@"start locate");
-}
-
-/**
- *用户方向更新后，会调用此函数
- *@param userLocation 新的用户位置
- */
-- (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
-{
-      NSLog(@"heading is %@",userLocation.heading);
-}
-
-/**
- *用户位置更新后，会调用此函数
- *@param userLocation 新的用户位置
- */
-- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
-{
-    if (_oldLocation) {
-        return;
-    }
-//    
-//    CGFloat lati = userLocation.location.coordinate.latitude;
-//    CGFloat longt = userLocation.location.coordinate.longitude;
-    
-    CLLocationCoordinate2D oCoordinate = userLocation.location.coordinate;
-    _oldLocation = userLocation.location;
-    [self.locationServices stopUserLocationService];
-        //地理位置解码
-        CLGeocoder *gecoder = [[CLGeocoder alloc]init];
-        [gecoder reverseGeocodeLocation:userLocation.location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
-    
-            for (CLPlacemark *mark in placemarks) {
-    
-//                NSDictionary *dic = [mark addressDictionary];
-    //            NSLog(@"位置：%@",mark.name);
-    //            NSLog(@"国家：%@",mark.country);
-                NSLog(@"城市：%@",mark.locality);
-    //            NSLog(@"地区：%@",mark.subLocality);
-    //            NSLog(@"街道%@",mark.thoroughfare);
-    //            NSLog(@"子街道：%@",mark.subThoroughfare);
-    //
-    //            NSLog(@"国家：%@",[dic objectForKey:@"Country"]);
-    //            NSLog(@"城市：%@",[dic objectForKey:@"State"]);
-    //            NSLog(@"区：%@",[dic objectForKey:@"Sublocality"]);
-                NSString *cityName = mark.locality;
-            if ([cityName length ] > 3 || cityName != nil) {
-    
-                //获取沙盒记录
-                NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-                NSString *oldCity = [user objectForKey:@"cityName"];
-                /********如果和数据库的相同则不处理*******/
-                if ([cityName isEqualToString:oldCity]) {
-                    return ;
-                }
-                [user setObject:mark.locality forKey:@"cityName"];
-                [user synchronize];
-                NSString  *address =[user objectForKey:@"cityName"];
-                NSLog(@"沙盒位置%@",address);
-                HHAddressDatasDB *add = [[HHAddressDatasDB alloc]init];
-                [add insertFromHistoryWithName:mark.locality];
-    //            重新调用 初始化数据
-    //            [self viewDidLoad];
-                [self.homeTableView reloadData];
-             }
-           }
-        }];
-
-//    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
-    
-    
- }
-
-/**
- *在地图View停止定位后，会调用此函数
- *@param mapView 地图View
- */
-- (void)didStopLocatingUser
-{
-    NSLog(@"stop locate");
-}
-
-/**
- *定位失败后，会调用此函数
- *@param mapView 地图View
- *@param error 错误号，参考CLError.h中定义的错误号
- */
-- (void)didFailToLocateUserWithError:(NSError *)error
-{
-    NSLog(@"location error");
-}
-
-//-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
-//    NSLog(@"出错了%@",error);
-//}
-//
-//-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
-//    if (_oldLocation != nil) {
-//        return;
-//    }
-//    CLLocation *newLocation = locations[0];
-////    CLLocationCoordinate2D oCoordinate = newLocation.coordinate;
-//    [self.locationMana stopUpdatingLocation];
-//    //地理位置解码
-//    CLGeocoder *gecoder = [[CLGeocoder alloc]init];
-//    [gecoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
-//        
-//        for (CLPlacemark *mark in placemarks) {
-//            
-//            NSDictionary *dic = [mark addressDictionary];
-////            NSLog(@"位置：%@",mark.name);
-////            NSLog(@"国家：%@",mark.country);
-//            NSLog(@"城市：%@",mark.locality);
-////            NSLog(@"地区：%@",mark.subLocality);
-////            NSLog(@"街道%@",mark.thoroughfare);
-////            NSLog(@"子街道：%@",mark.subThoroughfare);
-////
-////            NSLog(@"国家：%@",[dic objectForKey:@"Country"]);
-////            NSLog(@"城市：%@",[dic objectForKey:@"State"]);
-////            NSLog(@"区：%@",[dic objectForKey:@"Sublocality"]);
-//            NSString *cityName = mark.locality;
-//        if ([cityName length ] > 3 || cityName != nil) {
-//                
-//            //获取沙盒记录
-//            NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-//            NSString *oldCity = [user objectForKey:@"cityName"];
-//            /********如果和数据库的相同则不处理*******/
-//            if ([cityName isEqualToString:oldCity]) {
-//                return ;
-//            }
-//            [user setObject:mark.locality forKey:@"cityName"];
-//            [user synchronize];
-//            NSString  *address =[user objectForKey:@"cityName"];
-//            NSLog(@"沙盒位置%@",address);
-//            HHAddressDatasDB *add = [[HHAddressDatasDB alloc]init];
-//            [add insertFromHistoryWithName:mark.locality];
-////            重新调用 初始化数据
-////            [self viewDidLoad];
-//            [self addHeader];
-//            [self.homeTableView reloadData];
-//         }
-//       }
-//    }];
-//}
+#pragma mark --定位服务的代理方法
 @end
