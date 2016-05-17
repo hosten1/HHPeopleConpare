@@ -139,6 +139,11 @@
 		6D26B0591CE9C6A800DFF202 /* HHTextFiled.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D26B0581CE9C6A800DFF202 /* HHTextFiled.m */; };
 		6D776A471CE96D51002C379E /* EAIntroPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D776A441CE96D51002C379E /* EAIntroPage.m */; };
 		6D776A481CE96D51002C379E /* EAIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D776A461CE96D51002C379E /* EAIntroView.m */; };
+		6DB950C21CEB122700AA2D26 /* main4.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DB950BD1CEB122700AA2D26 /* main4.png */; };
+		6DB950C31CEB122700AA2D26 /* main.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DB950BE1CEB122700AA2D26 /* main.png */; };
+		6DB950C41CEB122700AA2D26 /* main1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DB950BF1CEB122700AA2D26 /* main1.png */; };
+		6DB950C51CEB122700AA2D26 /* main2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DB950C01CEB122700AA2D26 /* main2.png */; };
+		6DB950C61CEB122700AA2D26 /* main3.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DB950C11CEB122700AA2D26 /* main3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -387,6 +392,11 @@
 		6D776A441CE96D51002C379E /* EAIntroPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroPage.m; sourceTree = "<group>"; };
 		6D776A451CE96D51002C379E /* EAIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroView.h; sourceTree = "<group>"; };
 		6D776A461CE96D51002C379E /* EAIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroView.m; sourceTree = "<group>"; };
+		6DB950BD1CEB122700AA2D26 /* main4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main4.png; sourceTree = "<group>"; };
+		6DB950BE1CEB122700AA2D26 /* main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main.png; sourceTree = "<group>"; };
+		6DB950BF1CEB122700AA2D26 /* main1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main1.png; sourceTree = "<group>"; };
+		6DB950C01CEB122700AA2D26 /* main2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main2.png; sourceTree = "<group>"; };
+		6DB950C11CEB122700AA2D26 /* main3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main3.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -475,6 +485,11 @@
 		04CE16431CA3DA510087740D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6DB950BD1CEB122700AA2D26 /* main4.png */,
+				6DB950BE1CEB122700AA2D26 /* main.png */,
+				6DB950BF1CEB122700AA2D26 /* main1.png */,
+				6DB950C01CEB122700AA2D26 /* main2.png */,
+				6DB950C11CEB122700AA2D26 /* main3.png */,
 				04CE179B1CA3E4550087740D /* provience_city_coutry.sqlite */,
 				04CE16781CA3DAF50087740D /* icon.png */,
 				04CE164C1CA3DA510087740D /* Main.storyboard */,
@@ -1381,14 +1396,19 @@
 				04CE16BE1CA3DBD50087740D /* fmdb 帮助文档.docx in Resources */,
 				04CE178A1CA3DE190087740D /* HHTableViewCell.xib in Resources */,
 				04CE179C1CA3E4550087740D /* provience_city_coutry.sqlite in Resources */,
+				6DB950C21CEB122700AA2D26 /* main4.png in Resources */,
 				04CE16771CA3DAE60087740D /* icon.png in Resources */,
 				04F2F8111CA518030008E005 /* mapapi.bundle in Resources */,
+				6DB950C31CEB122700AA2D26 /* main.png in Resources */,
 				04CE172E1CA3DC650087740D /* HHFinderTableViewCell.xib in Resources */,
 				04CE16791CA3DAF50087740D /* icon.png in Resources */,
 				04CE17321CA3DC650087740D /* HHGroupTableViewCell.xib in Resources */,
+				6DB950C61CEB122700AA2D26 /* main3.png in Resources */,
+				6DB950C41CEB122700AA2D26 /* main1.png in Resources */,
 				6D26B0261CE9738600DFF202 /* icon_chose_arrow_nor@2x.png in Resources */,
 				6D26B0281CE9738600DFF202 /* icon_chose_bottom@2x.png in Resources */,
 				04CE16531CA3DA510087740D /* LaunchScreen.storyboard in Resources */,
+				6DB950C51CEB122700AA2D26 /* main2.png in Resources */,
 				04CE17C81CA3EBE90087740D /* HHDiscussTableViewCell.xib in Resources */,
 				6D26B0271CE9738600DFF202 /* icon_chose_arrow_sel@2x.png in Resources */,
 				04CE16501CA3DA510087740D /* Assets.xcassets in Resources */,
