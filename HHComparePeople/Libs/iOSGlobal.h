@@ -22,7 +22,6 @@
 #define safe_dealloc( __v__ ) [__v__ dealloc]
 #define safe_autorelease( __v__ ) [__v__ autorelease]
 #endif
-
 #pragma mark - Device && Screen
 /// 判断是否是iPhone5
 #define isPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)

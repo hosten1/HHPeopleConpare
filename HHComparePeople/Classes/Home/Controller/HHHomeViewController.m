@@ -229,8 +229,15 @@
     if (address == nil || address.length == 0) {
         address = @"西安市";
     }
+    UIImage *addreImg = [UIImage imageNamed:@"yy_arrow"];
+    UIButton *btnImg = [UIButton buttonWithType:UIButtonTypeCustom];
+    btnImg.frame = CGRectMake(65*ScreenScale_width, 10*ScreenScale_height, 30*ScreenScale_width, 30*ScreenScale_height);
+    [btnImg setBackgroundImage:addreImg forState:UIControlStateNormal];
+    [btnImg setBackgroundImage:addreImg forState:UIControlStateNormal];
+    [self.navigationController.navigationBar addSubview:btnImg];
+    
    
-//    UIImage *addreImg = [UIImage imageNamed:@"title_arrow_down_normal"];
+
 //    UIBarButtonItem *leftItemImg = [[UIBarButtonItem alloc] initWithImage: addreImg style:(UIBarButtonItemStyleDone) target:self action:@selector(addPickerViewhome:)];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:address style:(UIBarButtonItemStyleDone) target:self action:@selector(addPickerViewhome:)];
 //    CGSize re = [address sizeWithMaxSize:CGSizeMake(300, 300) andFont:14];
@@ -241,7 +248,7 @@
     //导航条的搜索条
     UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0,15, 15)];
     img.image = [UIImage imageNamed:@"booking_channel_search_icon"];
-    _searchBar = [[HHTextFiled alloc]initWithFrame:CGRectMake(0.0f,0.0f,200.0f,30.0f) drawingLeft:img];
+    _searchBar = [[HHTextFiled alloc]initWithFrame:CGRectMake(0.0f,0.0f,180.0f,30.0f) drawingLeft:img];
     _searchBar.delegate = self;
     [_searchBar setBackgroundColor:[UIColor whiteColor]];
     [_searchBar setTintColor:[UIColor whiteColor]];
@@ -250,7 +257,7 @@
     [_searchBar.layer setMasksToBounds:YES];
 
     //将搜索条放在一个UIView上
-    UIView *searchView = [[UIView alloc]initWithFrame:CGRectMake(95*ScreenScale_width,0, 200*ScreenScale_width, 35*ScreenScale_height)];
+    UIView *searchView = [[UIView alloc]initWithFrame:CGRectMake(95*ScreenScale_width,3*ScreenScale_height, 180*ScreenScale_width, 35*ScreenScale_height)];
     searchView.backgroundColor = [UIColor clearColor];
     [searchView addSubview:_searchBar];
     self.navigationItem.titleView = searchView;
