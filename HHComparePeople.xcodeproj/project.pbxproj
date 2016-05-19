@@ -30,9 +30,6 @@
 		04CE16BD1CA3DBD50087740D /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE16851CA3DBD50087740D /* FMDatabaseQueue.m */; };
 		04CE16BE1CA3DBD50087740D /* fmdb 帮助文档.docx in Resources */ = {isa = PBXBuildFile; fileRef = 04CE16861CA3DBD50087740D /* fmdb 帮助文档.docx */; };
 		04CE16BF1CA3DBD50087740D /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE16891CA3DBD50087740D /* FMResultSet.m */; };
-		04CE16C01CA3DBD50087740D /* MBProgressHUD+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE168C1CA3DBD50087740D /* MBProgressHUD+Extend.m */; };
-		04CE16C11CA3DBD50087740D /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04CE168D1CA3DBD50087740D /* MBProgressHUD.bundle */; };
-		04CE16C21CA3DBD50087740D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE168F1CA3DBD50087740D /* MBProgressHUD.m */; };
 		04CE16C31CA3DBD50087740D /* Regular.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE16911CA3DBD50087740D /* Regular.m */; };
 		04CE16C41CA3DBD50087740D /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE16941CA3DBD50087740D /* MKAnnotationView+WebCache.m */; };
 		04CE16C51CA3DBD50087740D /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE16961CA3DBD50087740D /* NSData+ImageContentType.m */; };
@@ -127,6 +124,7 @@
 		04DED2401CA7C68800D13B8B /* HHTitleBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DED23F1CA7C68800D13B8B /* HHTitleBtn.m */; };
 		04EC883F1CA775340057FA8F /* WayPointRouteSearchDemoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04EC883E1CA775340057FA8F /* WayPointRouteSearchDemoViewController.mm */; };
 		04F2F8111CA518030008E005 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04F2F8101CA518030008E005 /* mapapi.bundle */; };
+		592BF44712AE1BE9140F711D /* libPods-HHComparePeople.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B78BCD82FF705C7F36AF79F /* libPods-HHComparePeople.a */; };
 		6D26B01E1CE96FF400DFF202 /* EARestrictedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D26B01D1CE96FF400DFF202 /* EARestrictedScrollView.m */; };
 		6D26B0251CE9738600DFF202 /* DOPDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D26B0211CE9738600DFF202 /* DOPDropDownMenu.m */; };
 		6D26B0261CE9738600DFF202 /* icon_chose_arrow_nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D26B0221CE9738600DFF202 /* icon_chose_arrow_nor@2x.png */; };
@@ -137,6 +135,7 @@
 		6D26B0531CE99CA300DFF202 /* UIImage+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D26B0521CE99CA300DFF202 /* UIImage+Extention.m */; };
 		6D26B0561CE99CBB00DFF202 /* UIView+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D26B0551CE99CBB00DFF202 /* UIView+category.m */; };
 		6D26B0591CE9C6A800DFF202 /* HHTextFiled.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D26B0581CE9C6A800DFF202 /* HHTextFiled.m */; };
+		6D4E1EC11CEDAE0B0069B46C /* MBProgressHUD+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4E1EC01CEDAE0B0069B46C /* MBProgressHUD+Extend.m */; };
 		6D776A471CE96D51002C379E /* EAIntroPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D776A441CE96D51002C379E /* EAIntroPage.m */; };
 		6D776A481CE96D51002C379E /* EAIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D776A461CE96D51002C379E /* EAIntroView.m */; };
 		6DB950C21CEB122700AA2D26 /* main4.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DB950BD1CEB122700AA2D26 /* main4.png */; };
@@ -201,11 +200,6 @@
 		04CE16871CA3DBD50087740D /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
 		04CE16881CA3DBD50087740D /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		04CE16891CA3DBD50087740D /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
-		04CE168B1CA3DBD50087740D /* MBProgressHUD+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Extend.h"; sourceTree = "<group>"; };
-		04CE168C1CA3DBD50087740D /* MBProgressHUD+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Extend.m"; sourceTree = "<group>"; };
-		04CE168D1CA3DBD50087740D /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
-		04CE168E1CA3DBD50087740D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		04CE168F1CA3DBD50087740D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		04CE16901CA3DBD50087740D /* Regular.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Regular.h; sourceTree = "<group>"; };
 		04CE16911CA3DBD50087740D /* Regular.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Regular.m; sourceTree = "<group>"; };
 		04CE16931CA3DBD50087740D /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -370,6 +364,7 @@
 		04EC883D1CA775340057FA8F /* WayPointRouteSearchDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WayPointRouteSearchDemoViewController.h; sourceTree = "<group>"; };
 		04EC883E1CA775340057FA8F /* WayPointRouteSearchDemoViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WayPointRouteSearchDemoViewController.mm; sourceTree = "<group>"; };
 		04F2F8101CA518030008E005 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
+		2B78BCD82FF705C7F36AF79F /* libPods-HHComparePeople.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HHComparePeople.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D26B01C1CE96FF400DFF202 /* EARestrictedScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EARestrictedScrollView.h; sourceTree = "<group>"; };
 		6D26B01D1CE96FF400DFF202 /* EARestrictedScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EARestrictedScrollView.m; sourceTree = "<group>"; };
 		6D26B0201CE9738600DFF202 /* DOPDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPDropDownMenu.h; sourceTree = "<group>"; };
@@ -388,6 +383,8 @@
 		6D26B0551CE99CBB00DFF202 /* UIView+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+category.m"; sourceTree = "<group>"; };
 		6D26B0571CE9C6A800DFF202 /* HHTextFiled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTextFiled.h; sourceTree = "<group>"; };
 		6D26B0581CE9C6A800DFF202 /* HHTextFiled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTextFiled.m; sourceTree = "<group>"; };
+		6D4E1EBF1CEDAE0B0069B46C /* MBProgressHUD+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Extend.h"; sourceTree = "<group>"; };
+		6D4E1EC01CEDAE0B0069B46C /* MBProgressHUD+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Extend.m"; sourceTree = "<group>"; };
 		6D776A431CE96D51002C379E /* EAIntroPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroPage.h; sourceTree = "<group>"; };
 		6D776A441CE96D51002C379E /* EAIntroPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroPage.m; sourceTree = "<group>"; };
 		6D776A451CE96D51002C379E /* EAIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroView.h; sourceTree = "<group>"; };
@@ -397,6 +394,8 @@
 		6DB950BF1CEB122700AA2D26 /* main1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main1.png; sourceTree = "<group>"; };
 		6DB950C01CEB122700AA2D26 /* main2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main2.png; sourceTree = "<group>"; };
 		6DB950C11CEB122700AA2D26 /* main3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main3.png; sourceTree = "<group>"; };
+		D91DBC90FBDEE6E4BE443F9C /* Pods-HHComparePeople.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHComparePeople.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HHComparePeople/Pods-HHComparePeople.debug.xcconfig"; sourceTree = "<group>"; };
+		EE0B03E2FE17D990AAC7676F /* Pods-HHComparePeople.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHComparePeople.release.xcconfig"; path = "Pods/Target Support Files/Pods-HHComparePeople/Pods-HHComparePeople.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -429,6 +428,7 @@
 				04CE178C1CA3DF600087740D /* MapKit.framework in Frameworks */,
 				04CE16D51CA3DBD50087740D /* MOBFoundation.framework in Frameworks */,
 				04CE16D61CA3DBD50087740D /* SMS_SDK.framework in Frameworks */,
+				592BF44712AE1BE9140F711D /* libPods-HHComparePeople.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,12 +452,13 @@
 		04CE16371CA3DA510087740D = {
 			isa = PBXGroup;
 			children = (
-				04CE19171CA3F7CB0087740D /* libsqlite3.0.tbd */,
 				04CE16421CA3DA510087740D /* HHComparePeople */,
 				04CE165C1CA3DA510087740D /* HHComparePeopleTests */,
 				04CE16671CA3DA510087740D /* HHComparePeopleUITests */,
 				04CE16411CA3DA510087740D /* Products */,
 				04CE16761CA3DAE60087740D /* icon.png */,
+				926002FEE4EDE740E1E014B0 /* Pods */,
+				0FCA73B97E0E0E035E6D523A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -546,6 +547,7 @@
 		04CE167C1CA3DB9D0087740D /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				04CE19171CA3F7CB0087740D /* libsqlite3.0.tbd */,
 				6D26B02B1CE9783700DFF202 /* category */,
 				6D26B0291CE977CE00DFF202 /* Tools */,
 				6D26B01F1CE9738600DFF202 /* DOPDropDownMenu - Enhanced */,
@@ -560,6 +562,8 @@
 				04CE190B1CA3F1EE0087740D /* OpenGLES.framework */,
 				04CE19091CA3F1DD0087740D /* QuartzCore.framework */,
 				04CE17991CA3DFDB0087740D /* libz.tbd */,
+				6D4E1EBF1CEDAE0B0069B46C /* MBProgressHUD+Extend.h */,
+				6D4E1EC01CEDAE0B0069B46C /* MBProgressHUD+Extend.m */,
 				04CE17971CA3DFCB0087740D /* libicucore.tbd */,
 				04CE17951CA3DFB30087740D /* MessageUI.framework */,
 				04CE17931CA3DFA10087740D /* JavaScriptCore.framework */,
@@ -569,7 +573,6 @@
 				04CE178B1CA3DF600087740D /* MapKit.framework */,
 				04CE16D71CA3DBF00087740D /* Utiles */,
 				04CE167D1CA3DBD50087740D /* FMDB */,
-				04CE168A1CA3DBD50087740D /* MBProgressHUD */,
 				04CE16901CA3DBD50087740D /* Regular.h */,
 				04CE16911CA3DBD50087740D /* Regular.m */,
 				04CE16921CA3DBD50087740D /* SDWebImage */,
@@ -595,18 +598,6 @@
 				04CE16891CA3DBD50087740D /* FMResultSet.m */,
 			);
 			path = FMDB;
-			sourceTree = "<group>";
-		};
-		04CE168A1CA3DBD50087740D /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				04CE168B1CA3DBD50087740D /* MBProgressHUD+Extend.h */,
-				04CE168C1CA3DBD50087740D /* MBProgressHUD+Extend.m */,
-				04CE168D1CA3DBD50087740D /* MBProgressHUD.bundle */,
-				04CE168E1CA3DBD50087740D /* MBProgressHUD.h */,
-				04CE168F1CA3DBD50087740D /* MBProgressHUD.m */,
-			);
-			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		04CE16921CA3DBD50087740D /* SDWebImage */ = {
@@ -1231,6 +1222,14 @@
 			path = BaiduMapAPI;
 			sourceTree = "<group>";
 		};
+		0FCA73B97E0E0E035E6D523A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2B78BCD82FF705C7F36AF79F /* libPods-HHComparePeople.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6D26B01B1CE96FF400DFF202 /* EARestrictedScrollView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1287,6 +1286,15 @@
 			path = EAIntroView;
 			sourceTree = "<group>";
 		};
+		926002FEE4EDE740E1E014B0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D91DBC90FBDEE6E4BE443F9C /* Pods-HHComparePeople.debug.xcconfig */,
+				EE0B03E2FE17D990AAC7676F /* Pods-HHComparePeople.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1294,9 +1302,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04CE166D1CA3DA510087740D /* Build configuration list for PBXNativeTarget "HHComparePeople" */;
 			buildPhases = (
+				16A3075B231DBC2A9A12F1E7 /* 📦 Check Pods Manifest.lock */,
 				04CE163C1CA3DA510087740D /* Sources */,
 				04CE163D1CA3DA510087740D /* Frameworks */,
 				04CE163E1CA3DA510087740D /* Resources */,
+				C364118D3B7CA758B469BAFB /* 📦 Embed Pods Frameworks */,
+				0A7D32F2EE38C3CCC8D77C95 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1354,6 +1365,7 @@
 				TargetAttributes = {
 					04CE163F1CA3DA510087740D = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = C6D5598SN7;
 					};
 					04CE16581CA3DA510087740D = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -1413,7 +1425,6 @@
 				6D26B0271CE9738600DFF202 /* icon_chose_arrow_sel@2x.png in Resources */,
 				04CE16501CA3DA510087740D /* Assets.xcassets in Resources */,
 				04CE164E1CA3DA510087740D /* Main.storyboard in Resources */,
-				04CE16C11CA3DBD50087740D /* MBProgressHUD.bundle in Resources */,
 				04DED23D1CA7C5E100D13B8B /* HHSecondTitleVeiw.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1434,6 +1445,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0A7D32F2EE38C3CCC8D77C95 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HHComparePeople/Pods-HHComparePeople-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		16A3075B231DBC2A9A12F1E7 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C364118D3B7CA758B469BAFB /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HHComparePeople/Pods-HHComparePeople-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		04CE163C1CA3DA510087740D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1446,6 +1505,7 @@
 				04CE17441CA3DC650087740D /* HHMyMessagesTableCell.m in Sources */,
 				04CE17891CA3DE190087740D /* HHTableViewCell.m in Sources */,
 				04CE17881CA3DE190087740D /* requestData.m in Sources */,
+				6D4E1EC11CEDAE0B0069B46C /* MBProgressHUD+Extend.m in Sources */,
 				04CE16CC1CA3DBD50087740D /* SDWebImagePrefetcher.m in Sources */,
 				04CE16BC1CA3DBD50087740D /* FMDatabasePool.m in Sources */,
 				04CE16481CA3DA510087740D /* AppDelegate.m in Sources */,
@@ -1481,7 +1541,6 @@
 				04CE17421CA3DC650087740D /* HHuserInfoSettingTableViewCell.m in Sources */,
 				04CE17C61CA3EBE90087740D /* HHMyAnnoatation.m in Sources */,
 				04CE16D21CA3DBD50087740D /* UIImageView+WebCache.m in Sources */,
-				04CE16C01CA3DBD50087740D /* MBProgressHUD+Extend.m in Sources */,
 				04CE16D31CA3DBD50087740D /* UIView+WebCacheOperation.m in Sources */,
 				04CE17311CA3DC650087740D /* HHGroupTableViewCell.m in Sources */,
 				04CE177D1CA3DE190087740D /* HHPickerViewController.m in Sources */,
@@ -1489,7 +1548,6 @@
 				04CE17C71CA3EBE90087740D /* HHDiscussTableViewCell.m in Sources */,
 				04CE17301CA3DC650087740D /* HHGroupDatas.m in Sources */,
 				04CE17AA1CA3E7900087740D /* HHTabBar.m in Sources */,
-				04CE16C21CA3DBD50087740D /* MBProgressHUD.m in Sources */,
 				04CE16C31CA3DBD50087740D /* Regular.m in Sources */,
 				04CE17791CA3DE190087740D /* HHSearchResultViewController.m in Sources */,
 				04CE17361CA3DC650087740D /* HHMyMessagesViewController.m in Sources */,
@@ -1670,8 +1728,11 @@
 		};
 		04CE166E1CA3DA510087740D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D91DBC90FBDEE6E4BE443F9C /* Pods-HHComparePeople.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HHComparePeople/Libs/SMS_SDK",
@@ -1684,13 +1745,17 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.hosten.HHComparePeople;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		04CE166F1CA3DA510087740D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE0B03E2FE17D990AAC7676F /* Pods-HHComparePeople.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HHComparePeople/Libs/SMS_SDK",
@@ -1700,9 +1765,12 @@
 				GCC_PREFIX_HEADER = HHComparePeople/others/hosten.pch;
 				INFOPLIST_FILE = HHComparePeople/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				"LD_MAP_FILE_PATH[arch=*]" = "$(TARGET_TEMP_DIR)/$(PRODUCT_NAME)-LinkMap-$(CURRENT_VARIANT)-$(CURRENT_ARCH).txt";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.hosten.HHComparePeople;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

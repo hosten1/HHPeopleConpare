@@ -147,13 +147,7 @@
 -(void)initLocationService{
     /**********开始获取定位信息*************/
     CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
-    if ([CLLocationManager locationServicesEnabled ]) {
-        
-        NSLog(@"定位服务打开");
-    }
-    if (status == kCLAuthorizationStatusNotDetermined) {
-        NSLog(@"等待用户授权");
-    }else if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse){
+   if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse){
         NSLog(@"授权成功");
         
         self.locationManager.delegate = self;
@@ -347,7 +341,7 @@
     HHBaiduMapViewController *BaiDumapView = [[HHBaiduMapViewController alloc]init];
     BaiDumapView.shopDate = self.homeCellDatas;
 //    BaiDumapView.ShopLongitude = self.homeCellDatas.homeLongitude;
-    [self presentViewController:BaiDumapView animated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 -(void)addHeaderOne:(UIView*)view imgFrame:(CGRect)imgFrame labFrame:(CGRect)labFrame title:(NSString*)title{

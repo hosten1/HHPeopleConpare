@@ -1,0 +1,15 @@
+PODS:
+  - MBProgressHUD (0.9.2)
+  - MJNIndexView (0.0.1)
+
+DEPENDENCIES:
+  - MBProgressHUD
+  - MJNIndexView
+
+SPEC CHECKSUMS:
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MJNIndexView: 6186c3ea302624ed5c008dba8a178677a7523cab
+
+PODFILE CHECKSUM: f088c3034afb9ef95af06b7db2694fb5e66fdbba
+
+COCOAPODS: 1.0.0

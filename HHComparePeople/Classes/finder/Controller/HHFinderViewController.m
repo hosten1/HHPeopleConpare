@@ -11,6 +11,9 @@
 #import "HHFinderTableViewCell.h"
 #import "HHPickerViewController.h"
 #import "HHAddressViewController.h"
+#import "HHTextFiled.h"
+#import "UIImage+Extention.h"
+#import "NSString+Extension.h"
 //#import <CloudKit/CloudKit.h>
 #define mScreenSize [UIScreen mainScreen].bounds.size
 
@@ -21,7 +24,11 @@
 @property(nonatomic, strong)NSArray *finderdatas;
 @property(nonatomic, strong)HHPickerViewController *pickerControlller;
 
-
+@property(nonatomic, strong)UIButton *btnBg;
+@property(nonatomic,strong)UIBarButtonItem *leftBtnitem;
+@property(nonatomic,strong)UIBarButtonItem *rightBtnitem;
+@property(nonatomic, strong)HHTextFiled *searchBar;
+@property(nonatomic, weak)UIButton *leftBtn;
 @end
 
 @implementation HHFinderViewController
@@ -45,13 +52,63 @@
     return self;
 }
 -(void)viewWillAppear:(BOOL)animated{
-    [self addHeader];
+    [self initNavigationController];
+}
+-(void)initNavigationController{
+    
+    [self.navigationController.navigationBar setBarTintColor:[UIColor orangeColor]];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleDefault];
+    
+    //获取沙盒记录
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    NSString  *address =[user objectForKey:@"cityName"];
+    if (address == nil || address.length == 0) {
+        address = @"西安市";
+    }
+    CGSize btnSize = [address sizeWithMaxSize:CGSizeMake(200, 200) andFont:16];
+    
+    UIImage *addreImg = [UIImage imageNamed:@"yy_arrow"];
+    UIButton *btnImg = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.btnBg = btnImg;
+    btnImg.frame = CGRectMake((15+btnSize.width)*ScreenScale_width, 7*ScreenScale_height, 30*ScreenScale_width, 30*ScreenScale_height);
+    [btnImg setBackgroundImage:addreImg forState:UIControlStateNormal];
+    [btnImg setBackgroundImage:[UIImage imageNamed:@"yy_arrow_pressed"] forState:UIControlStateHighlighted];
+    [btnImg addTarget:self action:@selector(addPickerViewhome:) forControlEvents:UIControlEventTouchUpInside];
+    [self.navigationController.navigationBar addSubview:btnImg];
+    
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:address style:(UIBarButtonItemStyleDone) target:self action:@selector(addPickerViewhome:)];
+    self.navigationItem.leftBarButtonItems = @[leftItem];
+    self.leftBtnitem = leftItem;
+    
+    //导航条的搜索条
+    UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0,15, 15)];
+    img.image = [UIImage imageNamed:@"booking_channel_search_icon"];
+    _searchBar = [[HHTextFiled alloc]initWithFrame:CGRectMake(0.0f,0.0f,180.0f,30.0f) drawingLeft:img];
+    _searchBar.delegate = self;
+    [_searchBar setBackgroundColor:[UIColor whiteColor]];
+    [_searchBar setTintColor:[UIColor whiteColor]];
+    [_searchBar setPlaceholder:@"输入用户名/地名"];
+    [_searchBar.layer setCornerRadius:15];
+    [_searchBar.layer setMasksToBounds:YES];
+    
+    //将搜索条放在一个UIView上
+    UIView *searchView = [[UIView alloc]initWithFrame:CGRectMake(95*ScreenScale_width,3*ScreenScale_height, 180*ScreenScale_width, 35*ScreenScale_height)];
+    searchView.backgroundColor = [UIColor clearColor];
+    [searchView addSubview:_searchBar];
+    self.navigationItem.titleView = searchView;
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem: UIBarButtonSystemItemAdd target:self action:@selector(loadMoreInfo:)];
+    self.navigationItem.rightBarButtonItem = rightItem;
+    ;
+    self.rightBtnitem = rightItem;
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
      self.view.backgroundColor = [UIColor colorWithRed:(245/255.0) green:245/255.0 blue:245/255.0 alpha:0.9];
-    [self addHeader];
+  
     
     //设置tableeView
     [self initTableView];
@@ -63,7 +120,7 @@
 }
 #pragma mark  通只事件
 -(void)ChangeNameNotification:(NSNotification*)notification{
-    [self addHeader];
+   
 }
 
 -(void)initTableView{
@@ -79,50 +136,6 @@
    finderTableView.dataSource = self;
     self.finderTableView = finderTableView;
     [self.view addSubview:finderTableView];
-}
--(void)addHeader{
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 20, mScreenSize.width, mScreenSize.height*0.06)];
-    self.headerView = headerView;
-    CGSize sizze = headerView.frame.size;
-    UIButton  *headerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    //获取沙盒记录
-    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-    NSString  *address =[user objectForKey:@"cityName"];
-//    NSLog(@"address>>>%@",address);
-    if (address == nil) {
-        address = @"西安";
-    }
-    [headerBtn setTitle:address forState:UIControlStateNormal];
-    
-     headerBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [headerBtn addTarget:self action:@selector(addPickerViews:) forControlEvents:UIControlEventTouchUpInside];
-    [headerBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    headerBtn.frame = CGRectMake(5,15 , 60, sizze.height*0.33);
-    [headerView addSubview:headerBtn];
-    
-    UIImage *addreImg = [UIImage imageNamed:@"title_home_arrow_down_normal"];
-    UIImageView *addreImgView = [[UIImageView alloc]initWithFrame:CGRectMake(60,12 , 20, 20 )];
-    [addreImgView setImage:addreImg];
-    [headerView addSubview:addreImgView];
-    
-    UITextField *headerTextFiled = [[UITextField alloc]initWithFrame:CGRectMake(80,5, 290, sizze.height*0.73)];
-    [headerTextFiled setPlaceholder:@"输入用户名,地点"];
-    [headerTextFiled setFont:[UIFont systemFontOfSize:12]];
-    [headerTextFiled.layer setCornerRadius:15];
-    [headerTextFiled.layer setMasksToBounds:YES];
-    headerTextFiled.backgroundColor = [UIColor whiteColor];
-    [headerTextFiled setLayoutMargins:UIEdgeInsetsMake(0, 30, 0, 0)];
-    headerTextFiled.delegate = self;
-    [headerView addSubview:headerTextFiled];
-    //文本框图片
-    UIImageView *leftView = [[UIImageView alloc]initWithImage: [UIImage imageNamed: @"booking_channel_search_icon" ]];
-    leftView.frame = CGRectMake(0, 0, 15, 15);
-    [headerTextFiled setLeftView:leftView];
-    [headerTextFiled setLeftViewMode:UITextFieldViewModeAlways];
-    
-    
-    headerView.backgroundColor = [UIColor orangeColor];
-    [self.view addSubview:headerView];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

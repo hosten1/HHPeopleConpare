@@ -484,8 +484,9 @@
             /**失败还是跳转**/
             HHDetailsViewConTroller *deta = [[HHDetailsViewConTroller alloc]init];
             deta.homeCellDatas = celldate;
+            self.btnBg.hidden = YES;
             //跳转页面
-            [self presentViewController:deta animated:YES completion:nil];
+//            [self.navigationController pushViewController:deta animated:YES];
             
         }else   //  编码成功，找到了具体的位置信息
         {
@@ -516,6 +517,7 @@
             celldate.homeLongitude = longitudeLabeltext;
             deta.homeCellDatas = celldate;
             //跳转页面
+            self.btnBg.hidden = YES;
             [self.navigationController pushViewController:deta animated:YES];
         }
     }];
